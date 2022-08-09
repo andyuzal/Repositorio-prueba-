@@ -1,0 +1,147 @@
+/* unidades relativas rem y em*/
+/* unidad de medida rem 1rem = 16px*/
+/* unidad de medida em, 1em = toma el valor mas cercano*/
+
+/* reset*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* estilos generales*/
+
+body {
+    background-color: #F8CED8;
+}
+
+/* estilos de header*/
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+header nav ul {
+    display: flex;
+    column-gap: 10px;
+}
+
+header nav ul li {
+    list-style: none;
+    background-color: whitesmoke;
+    padding: 5px;
+    border-radius: 25px;
+    font-weight: bold;
+
+    font-size: 1em;
+}
+
+/* estilos de main*/
+
+main {
+    height: 80vh;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 1.5fr 1fr 1fr 0.5fr;
+    grid-template-areas:
+                        "main-p main-p" 
+                        "imagen-uno imagen-dos"
+                        "imagen-tres imagen-cuatro"
+                        "parrafo parrafo";
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.img-nosotros {
+    display: none;
+}
+
+.main-p {
+    grid-area: main-p;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 2rem;
+}
+
+.imagen-uno {
+    grid-area: imagen-uno;
+}
+
+.imagen-dos {
+    grid-area: imagen-dos;
+}
+
+.imagen-tres {
+    grid-area: imagen-tres;
+}
+
+.imagen-cuatro {
+    grid-area: imagen-cuatro;
+}
+
+.parrafo {
+    grid-area: parrafo;
+}
+
+/*footer*/
+
+footer p {
+    text-align: center;
+}
+
+/*  mediaqueries*/
+
+@media screen and (min-width:600px){
+   header h1 {
+       font-size: 3rem;
+   }
+
+   header nav ul li {
+       font-size: 1.5rem;
+   }
+
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1.5fr 1fr 1fr 0.5fr;
+        grid-template-areas:
+                            "main-p main-p main-p main-p" 
+                            "img-nosotros img-nosotros img-nosotros img-nosotros"
+                            "imagen-uno imagen-dos imagen-tres imagen-cuatro"
+                            "parrafo parrafo parrafo parrafo";
+    }    
+    .img-nosotros {
+        display: block;
+        grid-area: img-nosotros;
+    }  
+    .main-p {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width:1024px){
+   header{
+       flex-direction: row;
+       justify-content: space-around;
+   }
+   main {
+    display: grid;
+    grid-template-columns: repeat(4, 0.2fr);
+    grid-template-areas:
+                        "main-p main-p img-nosotros img-nosotros" 
+                        "imagen-uno imagen-dos imagen-tres imagen-cuatro"
+                        "parrafo parrafo parrafo parrafo";
+    }    
+}
